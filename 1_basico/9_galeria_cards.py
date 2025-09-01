@@ -182,9 +182,9 @@ def main(page: ft.Page):
         # Filtra os animais usando list comprehension (uma forma compacta de filtrar listas)
         # Para cada animal 'a' na lista 'animais', inclui apenas se:
         filtrados = [a for a in animais 
-                    if (categoria == "Todos" or a["categoria"] == categoria) and      # Categoria bate OU é "Todos"
-                       (tamanho == "Todos" or a["tamanho"] == tamanho) and          # Tamanho bate OU é "Todos"
-                       (not busca or busca in a["nome"].lower())]                   # Não há busca OU nome contém o texto buscado
+                    if  (categoria == "Todos" or a["categoria"] == categoria) and      # Categoria bate OU é "Todos"
+                        (tamanho == "Todos" or a["tamanho"] == tamanho) and          # Tamanho bate OU é "Todos"
+                        (not busca or busca in a["nome"].lower())]                   # Não há busca OU nome contém o texto buscado
         
         # Para cada animal que passou pelos filtros, cria um card e adiciona na grade
         for animal in filtrados:
@@ -255,8 +255,8 @@ def main(page: ft.Page):
             
             # Primeira linha de filtros: categoria e tamanho lado a lado
             ft.Row([filtro_categoria, filtro_tamanho], 
-                  alignment=ft.MainAxisAlignment.CENTER,  # Centraliza na tela
-                  spacing=20  # 20 pixels de espaço entre eles
+                    alignment=ft.MainAxisAlignment.CENTER,  # Centraliza na tela
+                    spacing=20  # 20 pixels de espaço entre eles
             ),
             
             # Segunda linha: campo de busca e botão de limpar
